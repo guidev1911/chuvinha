@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="icone/ghostico.ico" type="image/x-icon">
+    <title>Chuvinha</title>
+    <link rel="stylesheet" href="estilo/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="cloud"></div>           
+        <p>Por <a href="#" onclick="playaudio()"> Guilherme</a></p>
+    </div>
+    
+    <audio id="audio-player"  loop autoplay>
+        <source src="audio/chuva.mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    
+    
+    <script>
+        function rain() {
+            let cloud = document.querySelector('.cloud');
+            let e = document.createElement('div');
+            let left = Math.floor(Math.random() * 310);
+            let width = Math.random() * 2;
+            let height = Math.random() * 50;
+            let duration = Math.random() * 0.1;
+            e.classList.add('drop');
+            cloud.appendChild(e);
+            e.style.left = left + 'px';
+            e.style.width = 0.5 + width + 'px';
+            e.style.height = 0.5 + height + 'px';
+            e.style.animationDuration = 1 + duration + 's';
+            setTimeout(function () {
+                 cloud.removeChild(e) 
+                }, 2000)
+
+        } 
+        setInterval(function () {
+             rain()
+        }, 20);
+
+        function playaudio(){
+            let x = document.getElementById("audio-player");
+            x.play();
+        }
+
+    </script>
+
+
+
+</body>
+
+
+
+</html>
